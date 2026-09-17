@@ -219,8 +219,16 @@ ul { list-style: none; }
   color: var(--ink-light);
   transition: color 0.2s;
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.nav-link svg {
+  opacity: 0.5;
+  transition: transform 0.25s var(--ease), opacity 0.2s;
 }
 .nav-link:hover { color: var(--ink); }
+.nav-link:hover svg { opacity: 1; transform: rotate(180deg); }
 .nav-link::after {
   content: '';
   position: absolute;
@@ -232,6 +240,109 @@ ul { list-style: none; }
   transition: width 0.3s var(--ease);
 }
 .nav-link:hover::after { width: 100%; }
+
+/* ---------- Nav Dropdown Panels ---------- */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 150;
+  display: flex;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(142, 115, 67, 0.08);
+  min-width: 240px;
+  transition: all 0.25s var(--ease);
+}
+
+.nav-dropdown-panel::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-right: none;
+  rotate: 45deg;
+  border-radius: 2px;
+}
+
+/* Invisible hover bridge between nav-link and panel */
+.nav-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 16px;
+  display: none;
+}
+
+.nav-dropdown:hover::after {
+  display: block;
+}
+
+.nav-dropdown:hover .nav-dropdown-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown:hover > .nav-link { color: var(--ink); }
+.nav-dropdown:hover > .nav-link svg { opacity: 1; transform: rotate(180deg); }
+.nav-dropdown:hover > .nav-link::after { width: 100%; }
+
+.dropdown-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 210px;
+}
+
+.dropdown-heading {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.dropdown-item {
+  font-size: 0.8rem;
+  color: var(--ink-light);
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  font-weight: 450;
+  line-height: 1.4;
+}
+
+.dropdown-item:hover {
+  background: var(--bg-alt);
+  color: var(--ink);
+  padding-left: 0.85rem;
+}
 
 .header-actions {
   display: flex;
@@ -691,11 +802,26 @@ ul { list-style: none; }
   flex-shrink: 0;
 }
 
-.about-img-placeholder {
-  width: 100%;
-  aspect-ratio: 4/3;
-  background: linear-gradient(135deg, var(--bg-alt) 0%, #E0DCD5 100%);
+/* Blended image — soft feathered edges, no harsh card */
+.about-img-blend {
+  position: relative;
   border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.about-img-blend img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, #000 55%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, #000 55%, transparent 100%);
+  transition: transform 0.5s var(--ease);
+}
+
+.about-img-blend:hover img {
+  transform: scale(1.02);
 }
 
 /* ---------- CTA Banner ---------- */
