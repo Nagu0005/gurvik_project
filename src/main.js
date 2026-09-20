@@ -23,17 +23,6 @@ if (drawer) {
   });
 }
 
-// ---- Sound Toggle ----
-const video = document.getElementById('heroBrandVideo');
-const soundBtn = document.getElementById('soundToggleBtn');
-const soundIcon = document.getElementById('soundIcon');
-
-if (soundBtn && video && soundIcon) {
-  soundBtn.addEventListener('click', () => {
-    video.muted = !video.muted;
-    soundIcon.textContent = video.muted ? '🔇' : '🔊';
-  });
-}
 
 // ---- Form Submission → Email (SMTP) + WhatsApp ----
 const form = document.getElementById('consultationForm');
