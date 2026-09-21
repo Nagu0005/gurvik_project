@@ -87,7 +87,37 @@
         <button class="drawer-close" id="mobileMenuClose">✕</button>
       </div>
       <nav class="drawer-links">
-        <a href="#services" class="drawer-link">Services</a>
+        <div class="drawer-dropdown">
+          <button class="drawer-dropdown-btn active" id="mobileServicesToggle" aria-expanded="true">
+            <span>Services</span>
+            <svg class="drawer-chevron" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="drawer-dropdown-content open" id="mobileServicesMenu">
+            <div class="drawer-subgroup">
+              <span class="drawer-subheading"><span class="drawer-subnum">01.</span> Project Management</span>
+              <a href="#services" class="drawer-subitem">Corporate & Commercial Fit-Outs</a>
+              <a href="#services" class="drawer-subitem">Luxury Villa Renovation & Handover</a>
+              <a href="#services" class="drawer-subitem">High-End Apartment Upgrades</a>
+              <a href="#services" class="drawer-subitem">Complete Turnkey Contracting</a>
+              <a href="#services" class="drawer-subitem">Multi-Contractor Coordination</a>
+              <a href="#services" class="drawer-subitem">Cost & Schedule Oversight</a>
+              <a href="#services" class="drawer-subitem">Authority & Municipal Approvals</a>
+            </div>
+            <div class="drawer-subgroup">
+              <span class="drawer-subheading"><span class="drawer-subnum">02.</span> Technical & Maintenance</span>
+              <a href="#services" class="drawer-subitem">HVAC & AC</a>
+              <a href="#services" class="drawer-subitem">Electrical</a>
+              <a href="#services" class="drawer-subitem">Plumbing</a>
+              <a href="#services" class="drawer-subitem">Painting</a>
+              <a href="#services" class="drawer-subitem">Tiling & Flooring</a>
+              <a href="#services" class="drawer-subitem">Waterproofing</a>
+              <a href="#services" class="drawer-subitem">Civil Works</a>
+              <a href="#services" class="drawer-subitem">Landscaping</a>
+              <a href="#services" class="drawer-subitem">Swimming Pools</a>
+              <a href="#services" class="drawer-subitem">Custom Technical Requirements</a>
+            </div>
+          </div>
+        </div>
         <a href="#about" class="drawer-link">About</a>
         <a href="#contact" class="drawer-link">Contact</a>
       </nav>

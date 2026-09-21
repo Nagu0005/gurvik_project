@@ -3,10 +3,12 @@
 // Form → SMTP Email + WhatsApp
 // ============================================
 
-// ---- Mobile Menu ----
+// ---- Mobile Menu & Services Accordion ----
 const menuBtn = document.getElementById('mobileMenuBtn');
 const menuClose = document.getElementById('mobileMenuClose');
 const drawer = document.getElementById('mobileDrawer');
+const servicesToggle = document.getElementById('mobileServicesToggle');
+const servicesMenu = document.getElementById('mobileServicesMenu');
 
 if (menuBtn && drawer) {
   menuBtn.addEventListener('click', () => drawer.classList.add('active'));
@@ -14,11 +16,19 @@ if (menuBtn && drawer) {
 if (menuClose && drawer) {
   menuClose.addEventListener('click', () => drawer.classList.remove('active'));
 }
+if (servicesToggle && servicesMenu) {
+  servicesToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const isOpen = servicesMenu.classList.toggle('open');
+    servicesToggle.classList.toggle('active', isOpen);
+    servicesToggle.setAttribute('aria-expanded', isOpen);
+  });
+}
 if (drawer) {
   drawer.addEventListener('click', (e) => {
     if (e.target === drawer) drawer.classList.remove('active');
   });
-  drawer.querySelectorAll('.drawer-link').forEach(link => {
+  drawer.querySelectorAll('.drawer-link, .drawer-subitem, .btn-primary').forEach(link => {
     link.addEventListener('click', () => drawer.classList.remove('active'));
   });
 }

@@ -419,13 +419,15 @@ ul { list-style: none; }
 
 .drawer-inner {
   width: 100%;
-  max-width: 300px;
+  max-width: 340px;
   background: var(--bg);
   height: 100%;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
   animation: slideIn 0.3s var(--ease);
+  box-shadow: -10px 0 40px rgba(0,0,0,0.15);
 }
 @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
 
@@ -433,17 +435,19 @@ ul { list-style: none; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
   border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
 }
 
-.drawer-close { font-size: 1.25rem; color: var(--ink); }
+.drawer-close { font-size: 1.25rem; color: var(--ink); padding: 0.25rem; }
 
 .drawer-links {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  margin-top: 1.5rem;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  flex: 1;
 }
 
 .drawer-link {
@@ -451,6 +455,88 @@ ul { list-style: none; }
   font-weight: 500;
   color: var(--ink);
   padding: 0.5rem 0;
+  display: block;
+}
+
+/* Mobile Services Accordion */
+.drawer-dropdown {
+  width: 100%;
+}
+
+.drawer-dropdown-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--ink);
+  padding: 0.5rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.drawer-chevron {
+  transition: transform 0.3s var(--ease);
+  opacity: 0.6;
+}
+
+.drawer-dropdown-btn.active .drawer-chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+.drawer-dropdown-content {
+  display: none;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 0.75rem 0 0.75rem 0.6rem;
+  border-left: 2px solid rgba(142, 115, 67, 0.3);
+  margin-left: 0.35rem;
+  margin-top: 0.25rem;
+}
+
+.drawer-dropdown-content.open {
+  display: flex;
+}
+
+.drawer-subgroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.drawer-subheading {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.drawer-subnum {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.drawer-subitem {
+  font-size: 0.8125rem;
+  color: var(--ink-light);
+  padding: 0.25rem 0;
+  transition: color 0.2s, transform 0.2s;
+  display: block;
+  line-height: 1.35;
+}
+
+.drawer-subitem:hover {
+  color: var(--accent);
+  transform: translateX(3px);
 }
 
 /* ---------- Hero ---------- */
