@@ -78,7 +78,7 @@ if (form && successMsg) {
           'Full Name': formData.fullName,
           'Phone Number': formData.phoneNumber,
           'Email Address': formData.emailAddress,
-          'Emirate': formData.location,
+          'Emirates': formData.location,
           'Project Brief': formData.projectBrief || 'None provided',
           'Consent to Contact': formData.partnerConsent
         }),
@@ -97,7 +97,7 @@ New Consultation Request:
 • Name: ${formData.fullName}
 • Phone: ${formData.phoneNumber}
 • Email: ${formData.emailAddress}
-• Emirate: ${formData.location}${briefLine}
+• Emirates: ${formData.location}${briefLine}
 • Consent to Contact: ${formData.partnerConsent}`;
 
     const waUrl = `https://wa.me/971585330177?text=${encodeURIComponent(waMessage)}`;
