@@ -729,7 +729,7 @@ ul { list-style: none; }
 }
 
 .sector-for-wrap {
-  margin: 0.35rem 0 1rem;
+  margin: 0.35rem 0 0;
   padding: 0.85rem 1rem;
   background: rgba(142, 115, 67, 0.04);
   border-radius: var(--radius-md);
