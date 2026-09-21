@@ -514,6 +514,8 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
+  user-select: none;
 }
 
 .hero-video {
@@ -523,6 +525,8 @@ ul { list-style: none; }
   display: block;
   mix-blend-mode: multiply;
   filter: contrast(1.1) saturate(1.2);
+  pointer-events: none;
+  user-select: none;
 }
 
 /* ---------- Stats Strip ---------- */
