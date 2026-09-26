@@ -1,0 +1,6 @@
+# https://gurvik.com/robots.txt
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://gurvik.com/sitemap.xml
